@@ -50,11 +50,15 @@ public class SaveData : ISerializable {
 	public SaveData (SerializationInfo info, StreamingContext ctxt)
 	{
 		puntaje = (int)info.GetValue("puntaje", typeof(int));
+		pasoAlajuela = (bool)info.GetValue("pasoAlajuela", typeof(bool));
+		pasoCartago = (bool)info.GetValue("pasoCartago", typeof(bool));
 	}
 
 	public void GetObjectData (SerializationInfo info, StreamingContext ctxt)
 	{
 		info.AddValue("puntaje", puntaje);
+		info.AddValue("pasoAlajuela", pasoAlajuela);
+		info.AddValue("pasoCartago", pasoCartago);
 	}
 }
 

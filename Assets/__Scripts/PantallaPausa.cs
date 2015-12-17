@@ -49,10 +49,12 @@ public class PantallaPausa : MonoBehaviour {
 
 		if(GUILayout.Button( "Cargar Partida" )) {
 			SaveLoad.Load();
+
 			if (SaveData.pasoAlajuela && !SaveData.pasoCartago)
-				Application.LoadLevel("Pantalla1Cartago");
+				Application.LoadLevel("PantallaCartagoPuertas");
 			if (SaveData.pasoAlajuela && SaveData.pasoCartago)
-				Application.LoadLevel("Pantalla1SanJose");
+				Application.LoadLevel("PantallaSanJosePuertas");
+
 		}
 
 		if(GUILayout.Button( "Salir" )) {

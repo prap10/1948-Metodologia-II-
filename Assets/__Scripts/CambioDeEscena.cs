@@ -11,13 +11,15 @@ public class CambioDeEscena : MonoBehaviour {
 	public Text puntaje;
 
 	public void CambiarEscena(string escena) {
-		if (escena.Equals ("Pantalla1Cartago"))
+
+		if (escena.Equals ("PantallaCartagoPuertas"))
 			SaveData.pasoAlajuela = true;
-		if (escena.Equals ("Pantalla1SanJose"))
+		if (escena.Equals ("PantallaSanJosePuertas"))
 			SaveData.pasoCartago = true;
 
 		SaveData.Puntaje += 10;
 		Application.LoadLevel (escena);
+
 	}
 
 	public void ErrorRespuesta(){
@@ -43,6 +45,12 @@ public class CambioDeEscena : MonoBehaviour {
 			tiempoTexto.text = tiempo.ToString("f0");
 			tiempo -= Time.deltaTime;
 		}
+
+		if (SaveData.pasoAlajuela && !SaveData.pasoCartago)
+			Application.LoadLevel("PantallaCartagoPuertas");
+		if (SaveData.pasoAlajuela && SaveData.pasoCartago)
+			Application.LoadLevel("PantallaSanJosePuertas");
+
 			
 	}
 }
