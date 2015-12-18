@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml;
+using System.Xml.Serialization;
 
 public class Logo : MonoBehaviour {
 
 		public static AudioSource musicfondo;
-	public static int puntos =0;
+
 		void Start(){
 			musicfondo = GetComponent<AudioSource>();
 				
