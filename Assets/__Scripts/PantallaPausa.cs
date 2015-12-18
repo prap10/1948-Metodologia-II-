@@ -37,6 +37,19 @@ public class PantallaPausa : MonoBehaviour {
 			GUI.Window ( 0, menuPausa, opcionesPausa, "Juego en Pausa" );
 	}
 
+	void Load(){
+		if(GUILayout.Button( "Cargar Partida" )) {
+			SaveLoad.Load();
+			
+			if (SaveData.pasoAlajuela && !SaveData.pasoCartago)
+				Application.LoadLevel("PantallaCartagoPuertas");
+			if (SaveData.pasoAlajuela && SaveData.pasoCartago)
+				Application.LoadLevel("PantallaSanJosePuertas");
+			if (!SaveData.pasoAlajuela && ! SaveData.pasoCartago)
+				Application.LoadLevel("PantallaAlajuelaPuertas");
+		}
+	}
+
 	void opcionesPausa( int pantallaId ) {
 		
 		if( GUILayout.Button( "Menu Principal" ) ) {
